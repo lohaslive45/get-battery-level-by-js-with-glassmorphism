@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+//*======主體內容-置中======
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  //*======背景-左上-漸層紫======
+  &::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: linear-gradient(#f3f5f5, #9c27b0);
+    border-radius: 50%;
+    transform: translate(-150px, -100px);
+  }
+  //*======背景-右下-漸層紅======
+  &::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background: linear-gradient(#ff2871, rgba(255, 40, 133, 0.2));
+    border-radius: 50%;
+    transform: translate(150px, 150px);
+  }
+}
+//*======主體內容置中+背景毛玻璃&陰影======
+.box {
+  position: relative;
+  width: 240px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1); //todo---[主體背景]純白+極透明---
+  z-index: 1;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25); //todo---[主體陰影]純黑+極透明---
+  border: 1px solid rgba(255, 255, 255, 0.25); //todo---[主體邊框]純白+極透明---
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px); //todo---[主體背景]毛玻璃---
+  border-radius: 10px; //todo---[主體邊框]圓角---
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+//*======文字內容區塊======
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h3 {
+    color: #9d2cb1;
+    font-weight: 500;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+  }
+}
+//*======電池外框======
+.batteryshape {
+  position: relative;
+  width: 140px;
+  height: 65px;
+  margin: 20px;
+  border: 3px solid #333;
+  border-radius: 10px;
+  //*======電池正極凸點======
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -12px;
+    width: 7px;
+    height: 16px;
+    background: #333;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  //*======電量立體感-淺色塊===
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+//*======電池內部填滿區塊======
+.level {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+//*======電池電量填滿======
+.percentage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #9c28af, #fd2c72);
+}
